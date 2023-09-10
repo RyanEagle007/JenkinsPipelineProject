@@ -1,40 +1,60 @@
 pipeline {
-    agent any 
+    agent any
 
     stages {
-        stage('Build') {
+        // Commence Build Process
+        stage("Build") {
             steps {
-                echo 'Simulating code build...'
+                echo "Initiating build using Maven"
+            }
+            post {
+                always {
+                    mail to: "srmthenatureadmirer@gmail.com",
+                        subject: "Status of Build",
+                        body: "Build Completed Successfully!"
+                }
             }
         }
-        stage('Unit and Integration Tests') {
+
+        // Execute Unit and Integration Checks
+        stage("Unit and Integration Tests") {
             steps {
-                echo 'Simulating running tests...'
+                echo "Executing unit and integration assessments ..."
             }
         }
-        stage('Code Analysis') {
+
+        // Examine Code Quality
+        stage("Code Analysis") {
             steps {
-                echo 'Simulating code analysis...'
+                echo "Reviewing code for quality ..."
             }
         }
-        stage('Security Scan') {
+
+        // Execute Security Assessment
+        stage("Security Scan") {
             steps {
-                echo 'Simulating security scan...'
+                echo "Conducting a security assessment ..."
             }
         }
-        stage('Deploy to Staging') {
+
+        // Move to Staging Environment
+        stage("Deploy to Staging") {
             steps {
-                echo 'Simulating deploy to staging...'
+                echo "Transferring to staging environment (e.g., AWS EC2 instance)"
             }
         }
-        stage('Integration Tests on Staging') {
+
+        // Perform Staging Integration Checks
+        stage("Integration Tests on Staging") {
             steps {
-                echo 'Simulating integration tests on staging...'
+                echo "Conducting integration assessments on staging setup"
             }
         }
-        stage('Deploy to Production') {
+
+        // Move to Production Environment
+        stage("Deploy to Production") {
             steps {
-                echo 'Simulating deploy to production...'
+                echo "Transferring to live production environment (e.g., AWS EC2 instance)"
             }
         }
     }
