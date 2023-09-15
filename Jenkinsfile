@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        // Commence Build Process
+        // Commence Build Processes
         stage("Build") {
             steps {
                 echo "Initiating build using Maven"
