@@ -26,7 +26,7 @@ pipeline {
         // Examine Code Quality
         stage("Code Analysis") {
             steps {
-                echo "Reviewing code for quality ..."
+                echo "Reviewing code for quality "
             }
         }
 
