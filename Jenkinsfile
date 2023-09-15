@@ -19,7 +19,7 @@ pipeline {
         // Execute Unit and Integration Checks
         stage("Unit and Integration Tests") {
             steps {
-                echo "Executing unit and integration assessments ..."
+                echo "Executing unit and integration assessments "
             }
         }
 
